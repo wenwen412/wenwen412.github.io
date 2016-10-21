@@ -35,10 +35,7 @@ struct free_list *free_list = nova_get_free_list(sb, i);
 + Add a counter (*alloc_count* ) to  indicate how many times that the blocks in this group has been allocated. 
 + Sorted link list to decide which group should be use.  
 
-- *nova_new_blocks( )*  might *nova_get_candidate_free_list( )* to decide which  
-
-  Free list should ot use. 
-  When current free_list[cpuid] can't satisfies requirements, find an aternative free_list
+- *nova_new_blocks( )*  might *nova_get_candidate_free_list( )* to decide which  free list should ot use.  When current free_list[cpuid] can't satisfies requirements, find an aternative free_list
 ```c
 static int nova_get_candidate_free_list(struct super_block *sb) 
  {
