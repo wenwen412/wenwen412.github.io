@@ -79,6 +79,7 @@ static int nova_get_candidate_free_list(struct super_block *sb)
   Ignore superpage support, then wile loop is not necessary.
   Allocate from current node, if not enough blks in this node, allocate all of them and then goto next.
   Retuen number of allocated pages
+  
 ```c
 static unsigned long nova_alloc_blocks_in_free_list(struct super_block *sb,
         struct free_list *free_list, unsigned short btype,
@@ -130,6 +131,7 @@ static unsigned long nova_alloc_blocks_in_free_list(struct super_block *sb,
         return num_blocks;
 }
 ```
+
 - **Allocate space for free_list (use *kzalloc*)**
 
 This function is called by *nova_fill_super*
