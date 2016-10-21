@@ -6,12 +6,11 @@ categories: NOVA
 tags: Nova filesystem PM NVM
 ---
 
+
 Nova Block Groups
 =======
 
-
-
-## In  super.c, change cpus number.
+- **In  super.c, change cpus number.**
 
 ```c
 static inline void set_default_opts(struct nova_sb_info *sbi)
@@ -26,21 +25,21 @@ static inline void set_default_opts(struct nova_sb_info *sbi)
         sbi->map_id = 0;
 }
 ```
-## Free list is got by
+- **Free list is got by**
 
 ```c
 struct free_list *free_list = nova_get_free_list(sb, i); 
 ```
-## Treate list as block group 
+- **Treate list as block group**
 
 + Add a counter (*alloc_count* ) to  indicate how many times that the blocks in this group has been allocated. 
-   + Sorted link list to decide which group should be use.  
++ Sorted link list to decide which group should be use.  
 
-- ** *nova_new_blocks( )*  might *nova_get_candidate_free_list( )* to decide which  
-  Free list should ot use. **
+- *nova_new_blocks( )*  might *nova_get_candidate_free_list( )* to decide which  
+
+  Free list should ot use. 
   When current free_list[cpuid] can't satisfies requirements, find an aternative free_list
 ```c
-
 static int nova_get_candidate_free_list(struct super_block *sb) 
  {
  	cpuid = smp_processor_id(); // get the current CPU ID.
@@ -72,11 +71,12 @@ static int nova_get_candidate_free_list(struct super_block *sb)
 
  }
 ```
-- ** current cpuid is got by *cpuid = smp_processor_id()*, and it's used for: **
+- **current cpuid is got by *cpuid = smp_processor_id()*, and it's used for: **
   + allocate free page
   + Journal transaction
 
-- ** Allocate blocks from *free_list* **
+-  **Allocate blocks from *free_list* **
+
   Ignore superpage support, then wile loop is not necessary.
   Allocate from current node, if not enough blks in this node, allocate all of them and then goto next.
   Retuen number of allocated pages
@@ -131,7 +131,7 @@ static unsigned long nova_alloc_blocks_in_free_list(struct super_block *sb,
         return num_blocks;
 }
 ```
-## Allocate space for free_list (use *kzalloc*)
+- **Allocate space for free_list (use *kzalloc*)**
 
 This function is called by *nova_fill_super*
 
