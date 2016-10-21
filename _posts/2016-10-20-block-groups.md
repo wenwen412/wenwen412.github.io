@@ -1,15 +1,11 @@
-
 ---
 layout: post
 title:  "Nova Block Groups"
 date:   2016-10-20 18:14:54
 categories: NOVA
 tags: Nova filesystem PM NVM
-
 ---
 
-* content
-{:toc}
 Nova Block Groups
 =======
 
