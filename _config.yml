@@ -6,8 +6,8 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: HyG
-brief-intro: Front-end Dev Engineer
+title: Wen's blog
+brief-intro: Phd student in SDSU
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://wenwen412.github.io" # the base hostname & protocol for your site
 
@@ -18,12 +18,12 @@ permalink: /:year/:month/:day/:title/
 #facebook_username: gaohaoyang.water
 github_username:  wenwen412
 email:  wenwen412@gmail.com
-#weibo_username: 3115521wh
-#zhihu_username: gaohaoyang
-#linkedIn_username: gaohaoyang
-dribbble_username:
+#weibo_username: godpan
+#zhihu_username: 
+linkedIn_username: Wen Pan
+#dribbble_username:
 
-description_footer: 本站记录我前端之旅的沿途风景！
+description_footer: A Notebook for myself！
 
 # comments
 # two ways to comment, only choose one, and use your own short name
